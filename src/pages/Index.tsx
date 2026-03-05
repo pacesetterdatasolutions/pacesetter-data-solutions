@@ -1,139 +1,116 @@
 import { Link } from "react-router-dom";
-import { BarChart3, BookOpen, Activity, FlaskConical, FileText, PenTool } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
-import FadeIn from "@/components/FadeIn";
-import heroBg from "@/assets/hero-bg.jpg";
-
-const services = [
-  {
-    icon: BarChart3,
-    title: "Data Analysis",
-    description: "Advanced statistical analysis using industry-standard tools to support rigorous academic and clinical research.",
-  },
-  {
-    icon: BookOpen,
-    title: "Evidence Synthesis",
-    description: "Systematic reviews, meta-analyses, and evidence mapping to inform policy and practice.",
-  },
-  {
-    icon: Activity,
-    title: "Epidemiology",
-    description: "Population health studies, disease surveillance, and public health data analysis.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Clinical Trials",
-    description: "Statistical support for trial design, data management, and regulatory submissions.",
-  },
-  {
-    icon: FileText,
-    title: "Grant Writing",
-    description: "Compelling research proposals with robust methodology sections to secure funding.",
-  },
-  {
-    icon: PenTool,
-    title: "Medical Writing & Editing",
-    description: "Peer-reviewed manuscripts, reports, and academic publications to the highest standards.",
-  },
-];
+import HeroParticles from "@/components/HeroParticles";
+import ScrollReveal from "@/components/ScrollReveal";
+import ServicesCarousel from "@/components/ServicesCarousel";
 
 const Index = () => {
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20">
         <div className="absolute inset-0">
-          <img
-            src={heroBg}
-            alt=""
-            className="h-full w-full object-cover"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-hero-overlay/80" />
+          <HeroParticles />
         </div>
-
-        <div className="relative z-10 container-narrow mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <FadeIn>
-            <h1 className="heading-display text-primary-foreground mb-6 max-w-3xl mx-auto">
-              Changing Lives Through Data
+        <div className="section-container relative z-10 py-24">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 animate-fade-in">
+              Pacesetter Data Solutions
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <p className="body-large text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-              Data Analysis, Research &amp; Medical Writing Services for Academics and Institutions
+            <p className="text-lg sm:text-xl font-semibold text-primary mb-1.5 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+              Data Analysis, Research &amp; Writing Services
             </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="hero" className="font-sans font-medium">
-                <Link to="/what-we-do">Explore Our Services</Link>
-              </Button>
-              <Button asChild size="lg" variant="heroOutline" className="font-sans font-medium">
-                <Link to="/contact">Submit an Enquiry</Link>
-              </Button>
+            <p className="text-2xl sm:text-3xl font-bold text-gradient mb-10 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              Changing Lives Through Data
+            </p>
+            <div className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
+              <Link
+                to="/what-we-do"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:gap-3 hover:px-8 glow-shadow group"
+              >
+                Learn More
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
             </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* About Preview */}
-      <section className="section-padding bg-background">
-        <div className="container-narrow mx-auto text-center max-w-3xl">
-          <FadeIn>
-            <h2 className="heading-section mb-6">Who We Are</h2>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="body-large text-muted-foreground mb-8">
-              Pacesetter Data Solutions is a UK-based academic and medical data consultancy. We support universities,
-              research institutions, NHS organisations, charities, and social enterprises with expert data analysis,
-              evidence synthesis, and medical writing services.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <Button asChild variant="outline" className="font-sans">
-              <Link to="/who-we-are">Learn More</Link>
-            </Button>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="section-padding bg-section-alt">
-        <div className="container-narrow mx-auto">
-          <FadeIn>
-            <h2 className="heading-section text-center mb-12">What We Do</h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => (
-              <FadeIn key={service.title} delay={i * 0.08}>
-                <Link
-                  to="/what-we-do"
-                  className="group block rounded-lg border bg-card p-6 transition-shadow hover:shadow-lg"
-                >
-                  <service.icon className="h-8 w-8 text-primary mb-4" strokeWidth={1.5} />
-                  <h3 className="font-serif text-lg font-semibold mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                </Link>
-              </FadeIn>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Trust Statement */}
-      <section className="section-padding bg-trust-bg">
-        <div className="container-narrow mx-auto text-center max-w-3xl">
-          <FadeIn>
-            <h2 className="heading-section text-trust-fg mb-6">Trusted by Institutions</h2>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="body-large text-trust-fg/80">
-              Our team comprises UK-trained experts with postgraduate qualifications in biostatistics,
-              epidemiology, and health research. We are committed to delivering rigorous, impactful work
-              that supports better outcomes for communities and organisations.
-            </p>
-          </FadeIn>
+      {/* Services Carousel */}
+      <section className="pb-0" style={{ background: "linear-gradient(180deg, hsl(217 100% 98%) 0%, hsl(217 55% 95%) 100%)" }}>
+        <div className="relative">
+          <div className="relative z-10">
+            <ServicesCarousel />
+          </div>
+          <div className="absolute top-0 left-0 z-20 section-container pt-6 sm:pt-8 pointer-events-none">
+            <h2
+              className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold tracking-tight drop-shadow-lg"
+              style={{
+                color: "hsl(0 0% 100%)",
+                textShadow: "0 2px 12px hsl(220 70% 10% / 0.7), 0 0 40px hsl(220 70% 10% / 0.4)",
+              }}
+            >
+              Our Services
+            </h2>
+          </div>
+        </div>
+        <div className="pb-16 sm:pb-24" style={{ background: "linear-gradient(180deg, hsl(217 55% 95%) 0%, hsl(217 100% 98%) 100%)" }} />
+      </section>
+
+      {/* Get In Touch — immersive CTA */}
+      <section className="relative overflow-hidden" style={{ background: "linear-gradient(160deg, hsl(220 70% 14%) 0%, hsl(214 56% 32%) 50%, hsl(220 70% 14%) 100%)" }}>
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, hsl(195 100% 58%), transparent 70%)" }} />
+        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-10" style={{ background: "radial-gradient(circle, hsl(214 56% 42%), transparent 70%)" }} />
+
+        <div className="section-container relative z-10 py-20 md:py-28">
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2
+                className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight mb-5"
+                style={{ color: "hsl(0 0% 100%)" }}
+              >
+                Get In Touch
+              </h2>
+              <p className="text-base sm:text-lg font-body leading-relaxed mb-8" style={{ color: "hsl(0 0% 100% / 0.7)" }}>
+                If you want to place an order or require further information about the services we offer, fill out the{" "}
+                <Link to="/contact" className="font-medium underline underline-offset-2 transition-colors" style={{ color: "hsl(195 100% 75%)" }}>
+                  expression of interest form
+                </Link>{" "}
+                or contact us by email at{" "}
+                <a href="mailto:pacesetterdatasolutions@gmail.com" className="font-medium underline underline-offset-2 transition-colors" style={{ color: "hsl(195 100% 75%)" }}>
+                  pacesetterdatasolutions@gmail.com
+                </a>
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium font-body transition-all duration-300 hover:shadow-lg hover:gap-3 group"
+                  style={{
+                    background: "hsl(195 100% 58%)",
+                    color: "hsl(220 70% 14%)",
+                  }}
+                >
+                  Contact Us
+                  <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
+                <a
+                  href="mailto:pacesetterdatasolutions@gmail.com"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-body font-medium transition-all duration-300"
+                  style={{
+                    color: "hsl(0 0% 100%)",
+                    border: "1px solid hsl(0 0% 100% / 0.2)",
+                    background: "hsl(0 0% 100% / 0.05)",
+                  }}
+                >
+                  <Mail className="w-4 h-4" style={{ color: "hsl(195 100% 75%)" }} />
+                  Email Us
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>

@@ -2,21 +2,21 @@
 
 ## Project info
 
-**Project URL**: <YOUR_PROJECT_URL>
+**Project URL**: REPLACE_WITH_PROJECT_URL
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use the web editor**
+**Use your website platform/editor**
 
-Open your project workspace in your preferred web editor and start making changes.
+Open your project in your preferred website platform/editor and continue making updates.
 
-Changes made in your web editor should be committed to this repository.
+Changes made through your platform/editor workflow can be committed to this repository.
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in your remote repository.
+If you want to work locally using your own IDE, you can clone this repo and push changes. Keep your deployment/source-of-truth workflow in sync with your hosting setup.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +62,12 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Deploy using your preferred hosting provider.
+Deploy using your preferred hosting provider and deployment workflow.
 
 ## Can I connect a custom domain to this project?
 
-Yes, you can.
+Yes.
 
-To connect a domain, configure DNS and domain settings through your hosting provider's dashboard.
+To connect a domain, use your hosting provider’s domain settings and map your domain to the deployed site.
 
-Follow your hosting provider's domain setup guide for exact steps.
+Read your hosting provider’s documentation for custom domain configuration steps.
