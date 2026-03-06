@@ -30,9 +30,10 @@ const Contact = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    const fieldName = (name === "full-name" ? "fullName" : name) as keyof FormData;
+    setFormData((prev) => ({ ...prev, [fieldName]: value }));
+    if (errors[fieldName as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     }
   };
 
@@ -55,7 +56,7 @@ const Contact = () => {
     // Submit to Netlify Forms
     const body = new URLSearchParams();
     body.append("form-name", "expression-of-interest");
-    body.append("fullName", formData.fullName);
+    body.append("full-name", formData.fullName);
     body.append("email", formData.email);
     body.append("country", formData.country);
     body.append("phone", formData.phone || "");
@@ -98,7 +99,7 @@ const Contact = () => {
             <ScrollReveal delay={100}>
               {/* Hidden Netlify form for detection */}
               <form name="expression-of-interest" data-netlify="true" netlify-honeypot="_honeypot" hidden>
-                <input name="fullName" />
+                <input name="full-name" />
                 <input name="email" />
                 <input name="country" />
                 <input name="phone" />
@@ -106,7 +107,15 @@ const Contact = () => {
                 <input name="_honeypot" />
               </form>
 
-              <form onSubmit={handleSubmit} className="surface-card p-6 md:p-8 space-y-5" noValidate>
+              <form
+                onSubmit={handleSubmit}
+                method="POST"
+                data-netlify="true"
+                name="expression-of-interest"
+                className="surface-card p-6 md:p-8 space-y-5"
+                noValidate
+              >
+                <input type="hidden" name="form-name" value="expression-of-interest" />
                 {/* Honeypot */}
                 <div className="hidden" aria-hidden="true">
                   <input name="_honeypot" value={formData._honeypot} onChange={handleChange} tabIndex={-1} autoComplete="off" />
@@ -118,7 +127,7 @@ const Contact = () => {
                   </label>
                   <input
                     id="fullName"
-                    name="fullName"
+                    name="full-name"
                     type="text"
                     value={formData.fullName}
                     onChange={handleChange}
