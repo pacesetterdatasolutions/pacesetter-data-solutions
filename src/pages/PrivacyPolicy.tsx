@@ -23,6 +23,9 @@ const PrivacyPolicy = () => {
               <p>
                 We use the information you provide solely to respond to your enquiry, discuss your project requirements, and provide you with a proposal for our services. We do not use your data for marketing purposes without your explicit consent.
               </p>
+              <p>
+                Expression of Interest form submissions are processed using Netlify Forms infrastructure and delivered to our business email inbox.
+              </p>
 
               <h2 className="text-xl font-semibold text-foreground">3. Data Sharing</h2>
               <p>

@@ -19,6 +19,7 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [submitError, setSubmitError] = useState("");
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
@@ -32,6 +33,9 @@ const Contact = () => {
     const { name, value } = e.target;
     const fieldName = (name === "full-name" ? "fullName" : name) as keyof FormData;
     setFormData((prev) => ({ ...prev, [fieldName]: value }));
+    if (submitError) {
+      setSubmitError("");
+    }
     if (errors[fieldName as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     }
@@ -39,6 +43,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitError("");
     const result = formSchema.safeParse(formData);
     if (!result.success) {
       const fieldErrors: FormErrors = {};
@@ -67,8 +72,15 @@ const Contact = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: body.toString(),
     })
-      .then(() => setSubmitted(true))
-      .catch(() => setSubmitted(true)); // Still show success for demo
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Form submission failed");
+        }
+        window.location.href = "/thank-you";
+      })
+      .catch(() => {
+        setSubmitError("Something went wrong while submitting the form. Please try again.");
+      });
   };
 
   const inputClass =
@@ -205,6 +217,7 @@ const Contact = () => {
                 >
                   Submit Expression of Interest
                 </button>
+                {submitError && <p className="text-destructive text-sm">{submitError}</p>}
               </form>
             </ScrollReveal>
           )}
