@@ -98,7 +98,7 @@ const Contact = () => {
           ) : (
             <ScrollReveal delay={100}>
               {/* Hidden Netlify form for detection */}
-              <form name="expression-of-interest" data-netlify="true" netlify-honeypot="_honeypot" hidden>
+                <form name="expression-of-interest" method="POST" data-netlify="true" netlify-honeypot="_honeypot" hidden>
                 <input name="full-name" />
                 <input name="email" />
                 <input name="country" />
