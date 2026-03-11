@@ -16,7 +16,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-4">
-              <img src={logoImg} alt="" className="w-10 h-10 brightness-0 invert opacity-90" aria-hidden="true" />
+              <img src={logoImg} alt="" className="w-14 h-14 brightness-0 invert opacity-90" aria-hidden="true" />
               <h3 className="text-xl font-heading font-bold" style={{ color: "hsl(0 0% 100%)" }}>
                 Pacesetter Data Solutions
               </h3>
@@ -91,6 +91,9 @@ const Footer = () => {
         <div className="mt-14 pt-6" style={{ borderTop: "1px solid hsl(0 0% 100% / 0.08)" }}>
           <p className="text-xs font-body text-center" style={{ color: "hsl(0 0% 100% / 0.4)" }}>
             &copy; {new Date().getFullYear()} Pacesetter Data Solutions. All rights reserved.
+          </p>
+          <p className="text-xs font-body text-center mt-2" style={{ color: "hsl(0 0% 100% / 0.4)" }}>
+            Pacesetter Data Solutions is a trading name of PACESETTER DATA SOLUTIONS LTD; a company registered in England & Wales (12822380).
           </p>
         </div>
       </div>

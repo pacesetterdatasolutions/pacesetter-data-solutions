@@ -58,7 +58,7 @@ const Header = () => {
     >
       <nav className="section-container flex items-center justify-between h-16 md:h-20" aria-label="Main navigation">
         <Link to="/" className="flex items-center shrink-0" aria-label="Pacesetter Data Solutions Home">
-          <img src={logoImg} alt="Pacesetter Data Solutions logo" className="h-12 md:h-14 w-auto mix-blend-multiply" />
+          <img src={logoImg} alt="Pacesetter Data Solutions logo" className="h-16 md:h-20 w-auto mix-blend-multiply" />
         </Link>
 
         {/* Desktop nav */}

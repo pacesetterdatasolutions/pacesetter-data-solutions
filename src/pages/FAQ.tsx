@@ -12,11 +12,11 @@ import {
 const faqs = [
   {
     q: "How does the whole process work?",
-    a: "Fill out an expression of interest form and we will get back to you by email or call to discuss. Alternatively, you can call us to discuss your proposed project. Following discussion, we will send you a proposal of the work to be done and estimated cost.",
+    a: "Complete the Expression of Interest form or email us, and we will respond by email or phone to discuss your needs. Following this discussion, we will provide a Scope of Work agreement along with an estimated cost.",
   },
   {
     q: "How much does it cost?",
-    a: "It depends on the type of project. But don't worry, our prices are very competitive and we provide good value for your money.",
+    a: "The cost depends on the type and scope of the project. However, our pricing is very competitive, and we aim to provide excellent value for your money.",
   },
   {
     q: "How will I transfer my data?",

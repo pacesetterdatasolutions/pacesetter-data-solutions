@@ -87,7 +87,7 @@ const servicesData: ServiceSection[] = [
   {
     id: "proofreading-editing",
     title: "Proofreading & Editing",
-    intro: "We provide reliable proofreading and editing services to students, academic and organisations. We edit and proofread the following documents:",
+    intro: "We provide reliable proofreading and editing services to students, individuals, academics and organisations. We edit and proofread the following documents:",
     bullets: [
       "Research papers",
       "Dissertations/Theses",
